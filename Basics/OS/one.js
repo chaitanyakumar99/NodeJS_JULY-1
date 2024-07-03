@@ -1,4 +1,5 @@
 import os from "os"         //ES6
+
 console.log(os.arch());
 console.log(os.freemem());
 console.log(os.platform());
