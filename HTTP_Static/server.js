@@ -9,12 +9,7 @@ let server=http.createServer((req,resp)=>{
             resp.end(data)
         })
     }
-    if(req.url ==="/home"){
-        fs.readFile('home.html','utf-8',(err,data)=>{
-            if(err) throw err
-            resp.end(data)
-        })
-    }
+    
     if(req.url ==="/about"){
         fs.readFile('about.html','utf-8',(err,data)=>{
             if(err) throw err
