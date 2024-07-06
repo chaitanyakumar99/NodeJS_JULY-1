@@ -3,7 +3,7 @@ const http = require('http')
 const fs=require('fs')
 let server=http.createServer((req,resp)=>{
     console.log(req.url)
-    if(req.url ==="/"){
+    if(req.url ==="/index"){
         fs.readFile('index.html','utf-8',(err,data)=>{
             if(err) throw err
             resp.end(data)
