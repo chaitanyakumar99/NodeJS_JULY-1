@@ -23,15 +23,16 @@ let server = http.createServer((req, resp) => {
                     resp.end(data)
                 })
             }
-    if (req.url === "/contact") {
-        fs.readFile(path.join(process.cwd(), "contact.html"), "utf-8", (err, data) => {
-            if (err) throw err
-            resp.end(data)
-        })
-    }
-    else {
-        resp.end("Page is not found")
-    }
+            else
+                if (req.url === "/contact") {
+                    fs.readFile(path.join(process.cwd(), "contact.html"), "utf-8", (err, data) => {
+                        if (err) throw err
+                        resp.end(data)
+                    })
+                }
+                else {
+                    resp.end("Page is not found")
+                }
 
 })
 
