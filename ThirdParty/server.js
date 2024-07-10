@@ -4,8 +4,8 @@ const dotenv=require('dotenv')
 
 dotenv.config({path:'./config.env'})
 
-let port=process.env.port
-let host_Name=process.env.host_Name
+let port=process.env.PORT
+let host_Name=process.env.HOST_Name
 
 let server=http.createServer((req,resp)=>{
     resp.end("Http server.....")
