@@ -2,7 +2,7 @@ const http = require('http')
 const fs = require('fs')
 const { url } = require('inspector')
 let server = http.createServer((req, resp) => {
-    console.log(req.url)
+    //console.log(req.url)
     const url=req.url;
     if (url.includes("index")) fs.readFile('index.html', 'utf-8', (err, data) => {
         if (err) throw err
