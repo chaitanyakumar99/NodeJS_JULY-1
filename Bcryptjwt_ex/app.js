@@ -6,9 +6,9 @@ let user={
     password:"ili"
 }
 
-console.log(users);
+console.log(user);
 
-let salt=bcrypt.genSalt(10)
+let salt=bcrypt.genSaltSync(10)
 let new_cc=bcrypt.hashSync(user.cc,salt)
 let new_password=bcrypt.hashSync(user.password,salt)
 
