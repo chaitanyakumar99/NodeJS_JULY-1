@@ -3,16 +3,16 @@ import path from 'path'
 
 let app=express()
 
-app.get("./",(req,resp)=>{
+app.get("/",(req,resp)=>{
     resp.sendFile(path.join(process.cwd(),"staticweb","index.html"),(err)=>{
         if(err) throw err
     })
 })
 
 app.get("./about",(req,resp)=>{
-    resp.end(path.join(process.cwd(),"staticweb","about.html",(err)=>{
+    resp.end(path.join(process.cwd(),"staticweb","about.html"),(err)=>{
         if(err) throw err
-    }))
+    })
 })
 
 
