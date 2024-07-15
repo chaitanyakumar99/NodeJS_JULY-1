@@ -1,4 +1,5 @@
 import bcrypt from 'bcrypt'
+
 let user={
     name:"Rahul",
     email:"rahul123@gmail.com",
