@@ -3,6 +3,7 @@ import dotenv from 'dotenv'
 import router from './routing/router.js'
 
 let app=express()
+
 app.use(express.json());
 
 dotenv.config({path:"./config/dev.env"})
