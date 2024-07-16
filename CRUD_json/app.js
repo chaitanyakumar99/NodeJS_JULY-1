@@ -1,6 +1,4 @@
-import fs from 'fs'
 import express from 'express'
-import morgan from 'morgan'
 import chalk from 'chalk'
 import dotenv from 'dotenv'
 
@@ -22,5 +20,5 @@ app.use('/user',empRouter)
 
 
 app.listen(port,host,(err)=>{
-    console.log(chalk.bgGrey(`sucessfully http://${host}:${port}/`));
+    console.log(chalk.bgGreen(`sucessfully http://${host}:${port}/`));
 })
