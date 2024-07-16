@@ -10,6 +10,7 @@ let app=express()
 dotenv.config({path:'./config/dev.config'})
 
 let port=process.env.port
+
 let host=process.env.hostname
 
 app.get('/',(req,resp)=>{
