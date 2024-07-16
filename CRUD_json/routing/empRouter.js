@@ -8,14 +8,14 @@ router.post("/create",(req,resp)=>{
 })
 
 router.get("/read",async(req,resp)=>{
-    let test= await getEmployees()
-    resp.status(200).json(test)
+    let emp= await getEmployees()
+    resp.status(200).json(emp)
     
 
 })
 
 
-let saveEmployees=(test)=>{}
+let saveEmployees=(emp)=>{}
 
 let getEmployees=()=>{
    let emp=fs.readFileSync('data.json','utf-8')
