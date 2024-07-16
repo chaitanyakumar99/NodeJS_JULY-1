@@ -1,15 +1,26 @@
+import fs from 'fs'
 import express from 'express'
-import dotenv from 'dotenv'
-import morgon from 'morgon'
+import morgan from 'morgan'
 import chalk from 'chalk'
+import dotenv from 'dotenv'
+
+import empRouter from './routing/empRouter.js'
 import { hostname } from 'os'
 
 let app=express()
 
-app.use(morgon(tiny))
+dotenv.config({path:'./config/dev.config'})
 
-app.get("/",(req,resp)=>{
+let port=process.env.port
+let host=process.env.hostname
 
+app.get('/',(req,resp)=>{
+    resp.send('severe is running properlly')
 })
+app.use('/user',empRouter)
 
-app.listen(post,hostname)
+
+
+app.listen(port,host,(err)=>{
+    console.log(`sucessfully http://${host}:${port}/`);
+})
