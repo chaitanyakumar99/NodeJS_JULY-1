@@ -22,5 +22,5 @@ app.use('/user',empRouter)
 
 
 app.listen(port,host,(err)=>{
-    console.log(`sucessfully http://${host}:${port}/`);
+    console.log(chalk.bgGrey(`sucessfully http://${host}:${port}/`));
 })
