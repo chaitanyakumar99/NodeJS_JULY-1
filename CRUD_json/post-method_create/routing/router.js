@@ -1,38 +1,44 @@
 import express from 'express'
 import fs from 'fs'
 
-let router = express.Router()
+let app=express.Router()
 
 
-router.post("/create", async (req, resp) => {
-  let emp_data = req.body
-  console.log(emp_data);
-  let emp = await hi()
-  let flag = emp.find((abc) => {
-    return abc.id === emp_data.id
-  })
 
-  if (flag) {
-    return resp.json({ "err": " user already exist" })
-  }
-  emp.push(emp_data)
-  await saveEmployees(emp)
-  return resp.status(200).json({ "msg": "new employeee created" })
+app.get('/read',(req,resp)=>{
+    let hi=get_emp()
+    resp.send(hi)
 })
 
-router.get("/read",async (req,resp)=>{
-  let emp=await hi()
-   resp.status(200).json(emp)
+// creating
+
+app.post('/create',(req,resp)=>{
+let emp_data=req.body;
+console.log(emp_data);
+let employees=get_emp();
+let flag=employees.find((emp)=>{
+    return emp.id ==emp_data.id
 })
-
-let saveEmployees=((emp)=>{
-  fs.writeFileSync('data.json',JSON.stringify(emp))
-})
-
-
-
-let hi = () => {
-  let employees = fs.readFileSync('data.json', 'utf-8')
-  return JSON.parse(employees)
+if(flag){
+    return resp.json({"Error":"Employee Alredy exit..!"})
 }
-export default router
+employees.push(emp_data)
+saveEmployee(employees)
+return resp.send("msg sucessfully created")
+})
+
+// creating
+
+
+let saveEmployee=(emp)=>{                          // write the file
+fs.writeFileSync('data.json',JSON.stringify(emp))  // write the file
+}
+
+let get_emp=(()=>{
+    let employee=fs.readFileSync('data.json','utf-8')
+    return JSON.parse(employee)
+})
+
+
+export default app
+
