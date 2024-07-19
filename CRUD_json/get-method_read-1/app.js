@@ -11,9 +11,9 @@ dotenv.config({path:'./config/dev.env'})
 let port=process.env.PORT
 let host=process.env.HOST
 
-app.get('/',(req,resp)=>{
-    resp.send("hi hello this from windows")
-})
+// app.get('/',(req,resp)=>{
+//     resp.send("hi hello this from windows")
+// })
 
 app.listen(port,host,(err)=>{
     if (err) throw err
