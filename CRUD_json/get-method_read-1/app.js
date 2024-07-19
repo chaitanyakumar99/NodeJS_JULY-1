@@ -1,9 +1,10 @@
 import express from 'express'
 import dotenv from 'dotenv'
-// import router from './router/router.js'
+import router from './router/router.js'
 
 let app=express()
-// app.use(router.express.json)
+app.use(express.json())
+app.use('/user',router)
 
 dotenv.config({path:'./config/dev.env'})
 
