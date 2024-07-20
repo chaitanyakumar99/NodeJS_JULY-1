@@ -1,10 +1,12 @@
 import mongoose from "mongoose";
 
-let emp_Schema=mongoose.Schema({
-    eid:{type:Number, require:true},
-    ename:{type:String,require:true},
-    esal:{type:Number,require:true}
+let emp_Schema=new mongoose.Schema({
+    eid:Number,
+    ename:String,
+    esal:Number
 })
+let Employee=mongoose.model("employees",emp_Schema)
 
-let Employee=mongoose.model("employee",emp_Schema)
-export default Employee;    
+
+
+export default Employee;
