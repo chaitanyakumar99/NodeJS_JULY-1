@@ -3,8 +3,6 @@ import fs from 'fs'
 
 let app=express.Router()
 
-
-
 app.get('/read',(req,resp)=>{
     let hi=get_emp()
     resp.send(hi)
@@ -38,6 +36,5 @@ let get_emp=(()=>{
     let employee=fs.readFileSync('data.json','utf-8')
     return JSON.parse(employee)
 })
-
 
 export default app
