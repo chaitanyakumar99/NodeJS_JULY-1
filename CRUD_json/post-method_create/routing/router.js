@@ -10,7 +10,7 @@ app.get('/read',(req,resp)=>{
     resp.send(hi)
 })
 
-// creating
+// creating----------------------------------------
 
 app.post('/create',(req,resp)=>{
 let emp_data=req.body;
@@ -27,7 +27,7 @@ saveEmployee(employees)
 return resp.send("msg sucessfully created")
 })
 
-// creating
+// creating---------------------------------------------
 
 
 let saveEmployee=(emp)=>{                          // write the file
@@ -41,4 +41,3 @@ let get_emp=(()=>{
 
 
 export default app
-

@@ -3,7 +3,6 @@ import chalk from 'chalk'
 import dotenv from 'dotenv'
 
 import empRouter from './routing/empRouter.js'
-import { hostname } from 'os'
 
 let app=express()
 
