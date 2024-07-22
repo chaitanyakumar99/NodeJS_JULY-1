@@ -12,9 +12,8 @@ let port=process.env.port
 let host=process.env.host
 
 app.get('/',(req,resp)=>{
-    resp.send("server created")
+    resp.send("server created..!")
 })
-
 
 
 app.use('/hi',router)

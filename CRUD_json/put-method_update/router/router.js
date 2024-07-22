@@ -7,7 +7,7 @@ router.get('/read', (req, resp) => {
 
     let num = get_emp()
     resp.send(num)
-
+  
 })
 
 // update
