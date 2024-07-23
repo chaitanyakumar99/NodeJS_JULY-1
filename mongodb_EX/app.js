@@ -2,7 +2,7 @@ import express from 'express'
 import morgan from 'morgan'
 import dotenv from 'dotenv'
 import mongoose from 'mongoose'
-import empRouter from './routing/empRouter.js'
+import empRouter from './routing/router.js'
 //create express app
 let app = express()
 
@@ -15,13 +15,13 @@ app.get("/",(req,resp)=>{
     resp.status(200).json({"msg":"Root Request"})
 })
 dotenv.config({path:'./config/dev.env'})
-let port=process.env.PORT 
-let host=process.env.HOST_NAME
+let port=process.env.port 
+let host=process.env.host
 //let dburl=process.env.MONGO_LOCAL_URL
 
 //connecting mongodb using moongoose
 // connect to Mongo DB Database
-mongoose.connect(process.env.MONGO_LOCAL_URL, {
+mongoose.connect(process.env.mongo_local_url, {
     useUnifiedTopology : true,
     useNewUrlParser : true,
 }).then((response) => {

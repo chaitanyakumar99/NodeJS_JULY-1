@@ -1,5 +1,5 @@
 import express from "express";
-import EmployeeModel from '../models/employee.js'
+import EmployeeModel from '../model/emp.js'
 let router = express.Router();
 
 //URL:localhost:8080/emp/
@@ -45,26 +45,6 @@ router.put("/update/:id",async(req,resp)=>{
     catch(err){
         return resp.status(401).json({"err":err.message})
     }
-})
-
-//delete
-
-
-router.delete("/delete/:id",async(req,resp)=>{
-    try{
-      let emp_Id = req.params.id;
-      console.log(emp_Id)
-      let Employee  =await EmployeeModel.findOne({eid:emp_Id})
-      console.log(Employee)
-      if(!Employee){
-        return resp.status(401).json({"msg":"Employee Not Exits"})
-      }
-      await EmployeeModel.findByIdAndDelete(Employee._id);
-      return resp.status(200).json({"msg":"Employee document deleted"})
-    }
-    catch(err){
-        return resp.status(401).json({"err":err.message})
-    }
 })
 
 export default router;
