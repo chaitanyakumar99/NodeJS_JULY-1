@@ -25,8 +25,21 @@ router.get("/read", async (req, resp) => {
 })
 
 
+/*
+    URL:localhost:8081/emp/create
+    Method: POST
+    Req Fields: eid,ename,esal
+*/
+router.post("/create", async (req,resp)=>{
+    console.log("Test Case 123");
+    let emp = req.body;
+    console.log(emp);
+});
+
+
 //update
 //Method type:_PUT
+//URL: http://localhost:8080/emp/update/1
 
 router.put("/update/:id",async(req,resp)=>{
     try{
