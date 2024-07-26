@@ -36,24 +36,50 @@ router.get("/read", async (req, resp) => {
     Access Type:public
 
 */
-router.post("/create",async (req,resp)=>{
-    try{
-    let emp=req.body;
-    let Employee=await product.findOne({name:emp.name})
-    console.log(Employee);
-    if(Employee){
-        return resp.status(200).json({"msg":"Employee created sucessfully...!"})
+router.post("/create", async (req, resp) => {
+    try {
+        let emp = req.body;
+        let Employee = await product.findOne({ name: emp.name })
+        console.log(Employee);
+        if (Employee) {
+            return resp.status(200).json({ "msg": "Employee created sucessfully...!" })
+        }
+        Employee = product(emp)
+        console.log(Employee);
+        await Employee.save();
+        return resp.status(401).json({ "msg": "Employee created sucessfully" })
     }
-    Employee=product(emp)
-    console.log(Employee);
-    await Employee.save();
-    return resp.status(401).json({"msg":"Employee created sucessfully"})
-    }
-    catch(err){
-     return resp.status(401).json({"error message":err.message})
+    catch (err) {
+        return resp.status(401).json({ "error message": err.message })
     }
 })
 
+/*
+    URL:http://127.0.0.1:8080/products/
+    MEthod:PUT
+    Fields:none
+    Access Type:public
+
+*/
+
+router.put("/update/:name", async (req, resp) => {
+    try{
+     let emp=req.params.name;
+     console.log(emp);
+     let Emp=req.body
+     console.log(Emp);
+     let Employee=await product.findOne({"name":emp})
+     console.log(Employee);
+     if(!Employee){
+        return resp.status(200).json({"msg":"Employee Not Exits"})
+     }
+     await product.findBynameAndUpdate(Employee._id,{$set:{name:emp,image:emp,price:emp,qty:emp,info:emp}})
+     return resp.status(401).json({"msg":"Employee Updated sucessfully"})
+    }
+    catch(err){
+
+    }
+});
 
 
 
