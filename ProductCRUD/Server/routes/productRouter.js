@@ -18,8 +18,9 @@ router.get("/", (req, resp) => {
     Fields:none
     Access Type:public
 */
-router.get("/read", async (req, resp) => {
 
+router.get("/read", async (req, resp) => {
+                                                                                                       
     try {
         let products = await product.find()
         return resp.status(200).json(products)
@@ -62,24 +63,48 @@ router.post("/create", async (req, resp) => {
 
 */
 
-router.put("/update/:name", async (req, resp) => {
+router.put("/update/:id", async (req, resp) => {
     try{
-     let emp=req.params.name;
+     let emp=req.params.id;
      console.log(emp);
      let Emp=req.body
      console.log(Emp);
-     let Employee=await product.findOne({"name":emp})
+     let Employee=await product.findOne({name:emp})
      console.log(Employee);
      if(!Employee){
         return resp.status(200).json({"msg":"Employee Not Exits"})
      }
-     await product.findBynameAndUpdate(Employee._id,{$set:{name:emp,image:emp,price:emp,qty:emp,info:emp}})
+     await product.findByIdAndUpdate(Employee._id,{$set:{name:Emp.name,image:Emp.image,price:Emp.price,qty:Emp.qty,info:Emp.info}})
      return resp.status(401).json({"msg":"Employee Updated sucessfully"})
     }
     catch(err){
-
+        resp.status(401).json({"msg":err.message})
     }
 });
+
+/*
+    URL:http://127.0.0.1:8080/products/delete:Id
+    MEthod:Delete
+    Fields:none
+    Access Type:public
+
+*/
+
+router.delete("/delete/:id",async (req,resp)=>{
+    try{
+    let p_Id=  req.params.id;
+    let product= await product.findById(p_Id)
+    if(!product){
+        return resp.status(401).json({"msg":"deleted sucessfully"})
+    }
+     await product.findByIdAndDelete(p_Id)
+     return resp.status(200).json({"msg":"product deleted sucessfully"})
+    }
+    catch(err){
+      return resp.status(200).json({"msg":err.msg})
+    }
+
+})
 
 
 

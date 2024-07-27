@@ -1,4 +1,4 @@
-import express from 'express'
+import express, { urlencoded } from 'express'
 import dotenv from 'dotenv'
 import mongoose from 'mongoose'
 import morgan from 'morgan'
@@ -9,6 +9,7 @@ import chalk from 'chalk'
 
 let app=express()
 app.use(express.json())
+app.use(urlencoded({extended:true}))
 
 app.use(cors())
 
