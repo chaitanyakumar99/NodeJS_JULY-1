@@ -82,7 +82,7 @@ router.put("/update/:id", async (req, resp) => {
     }
 });
 
-/*
+/*0
     URL:http://127.0.0.1:8080/products/delete:Id
     MEthod:Delete
     Fields:none
@@ -91,15 +91,17 @@ router.put("/update/:id", async (req, resp) => {
 */
 
 router.delete("/delete/:id",async (req,resp)=>{
+
     try{
     let p_Id=  req.params.id;
     let product= await product.findById(p_Id)
     if(!product){
-        return resp.status(401).json({"msg":"deleted sucessfully"})
+        return resp.status(401).json({"msg":"deleted sucessfully...!"})
     }
      await product.findByIdAndDelete(p_Id)
      return resp.status(200).json({"msg":"product deleted sucessfully"})
     }
+
     catch(err){
       return resp.status(200).json({"msg":err.msg})
     }
