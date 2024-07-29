@@ -93,12 +93,13 @@ router.put("/update/:id", async (req, resp) => {
 router.delete("/delete/:id",async (req,resp)=>{
 
     try{
+
     let p_Id=  req.params.id;
-    let product= await product.findById(p_Id)
-    if(!product){
-        return resp.status(401).json({"msg":"deleted sucessfully...!"})
+    let Product= await product.findOne({name:p_Id})
+    if(!Product){
+        return resp.status(401).json({"msg":"product not exits"})
     }
-     await product.findByIdAndDelete(p_Id)
+     await product.findByIdAndDelete(Product._id)
      return resp.status(200).json({"msg":"product deleted sucessfully"})
     }
 
@@ -107,7 +108,6 @@ router.delete("/delete/:id",async (req,resp)=>{
     }
 
 })
-
 
 
 /*
