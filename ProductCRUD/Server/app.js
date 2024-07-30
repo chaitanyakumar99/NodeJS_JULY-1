@@ -4,7 +4,7 @@ import mongoose from 'mongoose'
 import morgan from 'morgan'
 import cors from'cors'
 import chalk from 'chalk'
- import productRouter from './routes/productRouter.js'
+import productRouter from './routes/productRouter.js'
 
 
 let app=express()
