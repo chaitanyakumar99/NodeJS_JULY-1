@@ -64,21 +64,21 @@ router.post("/create", async (req, resp) => {
 */
 
 router.put("/update/:id", async (req, resp) => {
-    try{
-     let emp=req.params.id;
-     console.log(emp);
-     let Emp=req.body
-     console.log(Emp);
-     let Employee=await product.findOne({name:emp})
-     console.log(Employee);
-     if(!Employee){
-        return resp.status(200).json({"msg":"Employee Not Exits"})
-     }
-     await product.findByIdAndUpdate(Employee._id,{$set:{name:Emp.name,image:Emp.image,price:Emp.price,qty:Emp.qty,info:Emp.info}})
-     return resp.status(401).json({"msg":"Employee Updated sucessfully"})
+    try {
+        let emp = req.params.id;
+        console.log(emp);
+        let Emp = req.body
+        console.log(Emp);
+        let Employee = await product.findOne({ name: emp })
+        console.log(Employee);
+        if (!Employee) {
+            return resp.status(200).json({ "msg": "Employee Not Exits" })
+        }
+        await product.findByIdAndUpdate(Employee._id, { $set: { name: Emp.name, image: Emp.image, price: Emp.price, qty: Emp.qty, info: Emp.info } })
+        return resp.status(401).json({ "msg": "Employee Updated sucessfully" })
     }
-    catch(err){
-        resp.status(401).json({"msg":err.message})
+    catch (err) {
+        resp.status(401).json({ "msg": err.message })
     }
 });
 
