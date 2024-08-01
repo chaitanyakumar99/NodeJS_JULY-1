@@ -6,4 +6,4 @@ import router from './server/routes/router.js'
 
 let app=express()
 
-app.use(express.)
+app.use(express)
