@@ -2,6 +2,7 @@ import express from 'express'
 import product from '../model/product.js';
 
 let router = express.Router();
+
 /*
 url:http://127.0.0.1:8080/product/
 */
@@ -37,6 +38,7 @@ router.get("/read", async (req, resp) => {
     Access Type:public
 
 */
+
 router.post("/create", async (req, resp) => {
     try {
         let emp = req.body;
@@ -82,7 +84,7 @@ router.put("/update/:id", async (req, resp) => {
     }
 });
 
-/*0
+/*
     URL:http://127.0.0.1:8080/products/delete:Id
     MEthod:Delete
     Fields:none
