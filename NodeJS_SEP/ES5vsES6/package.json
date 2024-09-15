@@ -1,9 +1,9 @@
 {
-  "name": "node_json1",
+  "name": "es5vses6",
   "version": "1.0.0",
   "description": "",
   "type": "module",
-  "main": "index.js",
+  "main": "one.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
