@@ -28,7 +28,6 @@ mongoose.connect(mongodb_url)
     
     .catch((err)=>{})
 
-
 app.listen(port,host,(err)=>{
     if(err) throw err 
     console.log(`Server Running!... http://${host}:${port}/`)
