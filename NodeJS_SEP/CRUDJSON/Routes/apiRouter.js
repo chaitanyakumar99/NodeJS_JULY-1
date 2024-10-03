@@ -2,6 +2,7 @@ import express from 'express'
 import fs from 'fs'
 let router =express.Router();
 
+
 // Usage : create new employee/user/product/order
 // API URL: http://127.0.0.1:8080/api/create
 // Method Type: POST
@@ -21,6 +22,7 @@ router.post("/create",(req,resp)=>{
 // Required Fields: None
 // Access Type:Public
 
+
 router.get("/read",async(req,resp)=>{
     let employees= await getEmployees()
     return resp.json(employees)
@@ -33,6 +35,7 @@ router.get("/read",async(req,resp)=>{
 // Access Type:Public
 // Note: we need to verify employee exist or not. 
 // If employee exit we are going to update employee
+
 
 router.get("/update",async(req,resp)=>{
     let employees=await getEmployees()
@@ -61,8 +64,6 @@ router.delete("/del/:id",async(req,resp)=>{
         return resp.status(200)
     }
 })
-
-
 
 
 let getEmployees=()=>{
