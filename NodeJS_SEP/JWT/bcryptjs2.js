@@ -6,6 +6,7 @@ let user={
     password:"123456789",
     mobile:"9591619191"
 }
+
 let salt = bcrypt.genSaltSync(10)
 let new_PW=bcrypt.hashSync(user.password,salt)
 console.log(new_PW)
