@@ -1,7 +1,6 @@
 {
   "name": "expressex-all",
   "version": "1.0.0",
-  "description": "",
   "type": "module",
   "main": "index.js",
   "scripts": {
@@ -17,5 +16,7 @@
     "express": "^4.21.0",
     "mongoose": "^8.7.0",
     "morgan": "^1.10.0"
-  }
+  },
+  "devDependencies": {},
+  "description": ""
 }
