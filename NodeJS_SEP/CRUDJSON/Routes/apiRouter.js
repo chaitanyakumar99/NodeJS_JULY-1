@@ -2,7 +2,6 @@ import express from 'express'
 import fs from 'fs'
 let router =express.Router();
 
-
 // Usage : create new employee/user/product/order
 // API URL: http://127.0.0.1:8080/api/create
 // Method Type: POST
@@ -14,7 +13,6 @@ let router =express.Router();
 router.post("/create",(req,resp)=>{
     let emp =req.body;
 });
-
 
 // Usage : fetch all employees/users/products/orders
 // API URL: http://127.0.0.1:8080/api/read
@@ -49,9 +47,7 @@ router.get("/update",async(req,resp)=>{
 // Required Fields: eid,ename,esal,loc
 // Access Type:Public
 // Note: we need to verify employee exist or not. 
-// If employee exit we are going to update employee
-
-
+// If employee exit we are going to update emplgoyee
 
 router.delete("/del/:id",async(req,resp)=>{
     let eid= req.params.id
