@@ -5,8 +5,8 @@ import mongoose from 'mongoose'
 import dotevn from 'dotenv'
 import cors from 'cors'
 import employeeRouter from './routes/empRouter.js'
-let app = express()
 
+let app = express()
 
 dotevn.config({path:'./config/dev.env'})
 let port = process.env.PORT

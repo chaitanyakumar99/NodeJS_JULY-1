@@ -1,6 +1,6 @@
 import express from 'express'
 import fs from 'fs'
-let router =express.Router();
+let router = express.Router();
 
 // Usage : create new employee/user/product/order
 // API URL: http://127.0.0.1:8080/api/create
@@ -10,8 +10,8 @@ let router =express.Router();
 // Note: we need to verify employee exist or not. 
 // If employee not exit we are going to create new employee
 
-router.post("/create",(req,resp)=>{
-    let emp =req.body;
+router.post("/create", (req, resp) => {
+    let emp = req.body;
 });
 
 // Usage : fetch all employees/users/products/orders
@@ -21,8 +21,8 @@ router.post("/create",(req,resp)=>{
 // Access Type:Public
 
 
-router.get("/read",async(req,resp)=>{
-    let employees= await getEmployees()
+router.get("/read", async (req, resp) => {
+    let employees = await getEmployees()
     return resp.json(employees)
 })
 
@@ -35,9 +35,9 @@ router.get("/read",async(req,resp)=>{
 // If employee exit we are going to update employee
 
 
-router.get("/update",async(req,resp)=>{
-    let employees=await getEmployees()
-     return resp.json(employees)
+router.get("/update", async (req, resp) => {
+    let employees = await getEmployees()
+    return resp.json(employees)
 })
 
 
@@ -49,12 +49,12 @@ router.get("/update",async(req,resp)=>{
 // Note: we need to verify employee exist or not. 
 // If employee exit we are going to update emplgoyee
 
-router.delete("/del/:id",async(req,resp)=>{
-    let eid= req.params.id
-    let employee=req.body
-    let employees=await getEmployees()
-    let emp=employee.find((emp)=>{
-        return emp.eid==emp_Id;
+router.delete("/del/:id", async (req, resp) => {
+    let eid = req.params.id
+    let employee = req.body
+    let employees = await getEmployees()
+    let emp = employee.find((emp) => {
+        return emp.eid == emp_Id;
     })
     if (emp_Data) {
         return resp.status(200)
@@ -62,8 +62,8 @@ router.delete("/del/:id",async(req,resp)=>{
 })
 
 
-let getEmployees=()=>{
-    let emp_Data=fs.readFileSync('data.json','utf-8')
+let getEmployees = () => {
+    let emp_Data = fs.readFileSync('data.json', 'utf-8')
     return JSON.parse(emp_Data)
 }
 
