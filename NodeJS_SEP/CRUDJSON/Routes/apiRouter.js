@@ -20,7 +20,6 @@ router.post("/create", (req, resp) => {
 // Required Fields: None
 // Access Type:Public
 
-
 router.get("/read", async (req, resp) => {
     let employees = await getEmployees()
     return resp.json(employees)
