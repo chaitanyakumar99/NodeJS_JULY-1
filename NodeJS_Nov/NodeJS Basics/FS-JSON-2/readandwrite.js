@@ -19,7 +19,7 @@ fs.readFile("data.json",'utf-8',(err,data)=>{
     }
     fs.writeFile("male.json", JSON.stringify(male_Users),(err)=>{
         if(err) throw err 
-        console.log("New JSON File Created") 
+        console.log("New JSON File Created...!") 
     })
     fs.writeFile("fmale.json", JSON.stringify(female_Users),(err)=>{
         if(err) throw err 
