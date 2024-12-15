@@ -14,7 +14,7 @@ console.log(new_PW)
 let flag = bcrypt.compareSync("123",new_PW)
 
 if(flag){
-    console.log("Login Success")
+    console.log("Login Success..")
 }
 else{
     console.log("Login failed")
